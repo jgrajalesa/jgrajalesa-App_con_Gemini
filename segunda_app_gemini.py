@@ -17,8 +17,8 @@ def validar_datos(nombre, email, telefono, fecha):
     # Expresiones regulares
     patron_nombre = r'^[A-Z][a-zA-Z]+$'
     patron_email = r'^[\w\.-]+@[A-Za-z]+\.[A-Za-z]{2,}$'
-    patron_telefono = r'^\d{10}$'  # Ajustar según el formato de teléfono deseado
-    patron_fecha = r'^\d{4}-\d{2}-\d{2}$'  # Formato YYYY-MM-DD
+    patron_telefono = r"^\+\d{1,3}\s\d{10}$"
+    patron_fecha = r'^\d{4}-\d{2}-\d{2}$'
 
     if not re.match(patron_nombre, nombre):
         st.error("El nombre debe comenzar con mayúscula y solo contener letras.")
