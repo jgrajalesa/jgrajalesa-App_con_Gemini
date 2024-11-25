@@ -17,7 +17,7 @@ def evaluar_contrasena(password):
     numero = re.compile('\d')
     especial = re.compile('[^\w\s]')
 
-    mensaje = "¡La contraseña es segura!"
+    
     if len(password) < 8:
         mensaje += "\nLa contraseña debe tener al menos 8 caracteres."
     if not mayuscula.search(password):
