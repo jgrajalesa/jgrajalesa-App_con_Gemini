@@ -17,8 +17,7 @@ def evaluar_contrasena(password):
     numero = re.compile('\d')
     especial = re.compile('[^\w\s]')
 
-    mensaje = "Esta app fue elaborada por: [Tu nombre]"
-
+    mensaje = "correcto"
     if len(password) < 8:
         mensaje += "\nLa contraseña debe tener al menos 8 caracteres."
     if not mayuscula.search(password):
@@ -30,14 +29,14 @@ def evaluar_contrasena(password):
     if not especial.search(password):
         mensaje += "\nLa contraseña debe incluir al menos un carácter especial."
 
-    if mensaje == "Esta app fue elaborada por: [Tu nombre]":
+    if mensaje == "correcto"
         mensaje = "¡La contraseña es segura!"
 
     return mensaje
 
 # Interfaz de usuario con Streamlit
 st.title("Evaluador de Contraseñas")
-
+st.caption("App elaborada por: Juan Grajales")
 password = st.text_input("Ingrese su contraseña")
 
 if st.button("Evaluar"):
