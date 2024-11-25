@@ -49,9 +49,9 @@ def validar_fecha(fecha):
 # Interfaz de usuario con Streamlit
 st.title("Formulario de Validación")
 
-nombre = st.text_input("Ingrese su nombre:")
-email = st.text_input("Ingrese su correo electrónico:")
-telefono = st.text_input("Ingrese su número de teléfono:")
+nombre = st.text_input("Ingrese su nombre (solo letras, comenzando con mayúscula):")
+email = st.text_input("Ingrese su correo electrónico (ejemplo: nombre@ejemplo.com):")
+telefono = st.text_input("Ingrese su número de teléfono (ejemplo: +54 11 23456789):")
 fecha = st.text_input("Ingrese su fecha de nacimiento (AAAA-MM-DD):")
 
 if st.button("Validar"):
@@ -63,14 +63,14 @@ if st.button("Validar"):
     if validar_email(email):
         st.success("Correo electrónico válido.")
     else:
-        st.error("Correo electrónico inválido.")
+        st.error("Correo electrónico inválido. Por favor, ingrese un formato válido como nombre@ejemplo.com")
 
     if validar_telefono(telefono):
         st.success("Número de teléfono válido.")
     else:
-        st.error("Número de teléfono inválido.")
+        st.error("Número de teléfono inválido. Por favor, ingrese un número con el formato +código_de_país número_de_teléfono.")
 
     if validar_fecha(fecha):
         st.success("Fecha válida.")
     else:
-        st.error("Fecha inválida. Use el formato AAAA-MM-DD.")
+        st.error("Fecha inválida. Use el formato AAAA-MM-DD (por ejemplo, 2023-11-22).")
