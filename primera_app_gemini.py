@@ -29,7 +29,7 @@ def evaluar_contrasena(password):
     if not especial.search(password):
         mensaje += "\nLa contraseña debe incluir al menos un carácter especial."
 
-    if mensaje == "correcto"
+    if mensaje == "correcto":
         mensaje = "¡La contraseña es segura!"
 
     return mensaje
