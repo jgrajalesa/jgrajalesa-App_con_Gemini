@@ -21,7 +21,6 @@ def validar_email(email):
     Returns:
         bool: True si el correo electrónico es válido, False si no.
     """
-    # Expresión regular básica para validar correos electrónicos, puedes personalizarla
     return re.match(r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$", email) is not None
 
 def validar_telefono(telefono):
@@ -33,8 +32,7 @@ def validar_telefono(telefono):
     Returns:
         bool: True si el número de teléfono es válido, False si no.
     """
-    # Ejemplo de expresión regular para números de teléfono en un formato específico,
-    # ajusta según tus necesidades
+    # Ejemplo de expresión regular para números de teléfono con código de país opcional
     return re.match(r"^\+?\d{1,3}\s?\d{10}$", telefono) is not None
 
 def validar_fecha(fecha):
@@ -62,4 +60,17 @@ if st.button("Validar"):
     else:
         st.error("Nombre inválido. Solo se permiten letras y debe comenzar con mayúscula.")
 
-    # ... (similar para email, teléfono y fecha)
+    if validar_email(email):
+        st.success("Correo electrónico válido.")
+    else:
+        st.error("Correo electrónico inválido.")
+
+    if validar_telefono(telefono):
+        st.success("Número de teléfono válido.")
+    else:
+        st.error("Número de teléfono inválido.")
+
+    if validar_fecha(fecha):
+        st.success("Fecha válida.")
+    else:
+        st.error("Fecha inválida. Use el formato AAAA-MM-DD.")
