@@ -34,24 +34,4 @@ def evaluar_contraseña(contraseña):
         if not minusculas.search(contraseña):
             sugerencias.append("Debe incluir al menos una letra minúscula")
         if not numeros.search(contraseña):
-            sugerencias.append("Debe incluir al menos un número")
-        if not especiales.search(contraseña):
-            sugerencias.append("Debe incluir al menos un carácter especial")
-
-        if sugerencias:
-            # Une las sugerencias con saltos de línea y las muestra junto con el mensaje de que la contraseña no es segura.
-            sugerencias_formateadas = "\n".join(sugerencias)
-            return f"La contraseña no es segura. Sugerencias:\n{sugerencias_formateadas}"
-        else:
-            return "La contraseña es segura."
-
-# Interfaz de usuario con Streamlit
-st.title("Evaluador de Contraseñas")
-
-st.write('Esta app fue elaborada por Juan Grajales')
-
-contraseña = st.text_input("Ingrese su contraseña:")
-
-if contraseña:
-    resultado = evaluar_contraseña(contraseña)
-    st.write(resultado)
+            sugerencias.
