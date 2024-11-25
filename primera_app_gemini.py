@@ -35,3 +35,15 @@ def evaluar_contraseña(contraseña):
             sugerencias.append("Debe incluir al menos una letra minúscula")
         if not numeros.search(contraseña):
             sugerencias.
+
+# Interfaz de usuario con Streamlit
+st.title("Evaluador de Contraseñas")
+
+st.write('Esta app fue elaborada por Juan Grajales')
+
+contraseña = st.text_input("Ingrese su contraseña:")
+
+if contraseña:
+    resultado = evaluar_contraseña(contraseña)
+    # Aplicamos un estilo CSS para separar las sugerencias
+    st.markdown(f"<p style='margin-top: 10px;'>{resultado}</p>", unsafe_allow_html=True)
