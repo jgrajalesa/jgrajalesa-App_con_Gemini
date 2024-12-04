@@ -1,3 +1,4 @@
+from datetime import datetime
 import streamlit as st
 import re
 
@@ -16,7 +17,14 @@ def validar_telefono(telefono):
 
 def validar_fecha(fecha):
     patron = r'^\d{2}/\d{2}/\d{2}$'
-    return bool(re.match(patron, fecha))
+    if not re.match(patron, fecha):
+        return False
+    try:
+        # Intentar convertir la fecha para asegurarse de que sea válida
+        datetime.strptime(fecha, '%d/%m/%y')
+        return True
+    except ValueError:
+        return False
 
 # Interfaz de Streamlit
 st.title("Validación de Datos en Formularios")
@@ -38,7 +46,7 @@ if st.button("Validar datos"):
     if not validar_telefono(telefono):
         errores.append("Teléfono no válido. Debe seguir el formato +57 314 300 6989.")
     if not validar_fecha(fecha):
-        errores.append("Fecha no válida. Debe seguir el formato DD/MM/AA.")
+        errores.append("Fecha no válida. Debe seguir el formato DD/MM/AA y ser una fecha existente.")
     
     if errores:
         st.error("Errores detectados:")
